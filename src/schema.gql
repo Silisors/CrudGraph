@@ -1,0 +1,31 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CatType {
+  id: ID!
+  name: String!
+  age: Int!
+  breed: String!
+  is_deleted: Boolean!
+}
+
+type Query {
+  FindByElement: [CatType!]!
+  Pagination(page: Int, limit: Int, searchTerm: String): [CatType!]!
+  FindAllIncludingDeleted: [CatType!]!
+}
+
+type Mutation {
+  CreateCat(input: CatInput!): CatType!
+  deleteCat(id: String!): Boolean!
+  updateCat(id: String!, input: CatInput!): CatType!
+  softDeleteCat(id: String!): CatType!
+}
+
+input CatInput {
+  name: String!
+  age: Int!
+  breed: String!
+  is_deleted: Boolean
+}
